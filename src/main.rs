@@ -1,10 +1,18 @@
-#[macro_use]
-extern crate lazy_static;
+//#[macro_use]
+//extern crate lazy_static;
 
-mod day1;
-mod day2;
+//pub mod day1;
+//pub mod day2;
+
+extern crate bump_alloc;
+
+use bump_alloc::BumpAlloc;
+
+#[global_allocator]
+static A : BumpAlloc = BumpAlloc::with_size(500000000);
+
+pub mod day3;
 
 fn main() {
-    day1::solve();
-    day2::solve();
+    day3::solve();
 }
